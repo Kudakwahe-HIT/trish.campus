@@ -18,7 +18,7 @@ export function PasswordField({
   error,
   disabled,
   labelAction,
-  autoComplete = "current-password",
+  autoComplete = "new-password",
 }: PasswordFieldProps) {
   const [visible, setVisible] = useState(false);
   const errorId = useId();
@@ -48,13 +48,20 @@ export function PasswordField({
           name="password"
           type={visible ? "text" : "password"}
           autoComplete={autoComplete}
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
+          data-lpignore="true"
+          data-1p-ignore="true"
           placeholder="Enter your password"
           value={value}
           disabled={disabled}
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? errorId : undefined}
           onChange={(event) => onChange(event.target.value)}
-          className="w-full min-w-0 bg-transparent py-3 pr-1 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none disabled:cursor-not-allowed disabled:text-slate-400"
+          className={`w-full min-w-0 bg-transparent py-3 pr-1 text-slate-900 placeholder:text-sm placeholder:font-normal placeholder:tracking-normal placeholder:text-slate-400 focus:outline-none disabled:cursor-not-allowed disabled:text-slate-400 ${
+            visible ? "text-sm font-normal tracking-normal" : "text-base font-semibold tracking-[0.1em]"
+          }`}
         />
         <button
           type="button"

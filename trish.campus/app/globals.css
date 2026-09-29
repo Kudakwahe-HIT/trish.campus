@@ -42,6 +42,23 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Neutralise the browser's native autofill highlight (Chrome/Edge/Safari paint only
+   the <input> box itself, which is narrower than our icon-badge field wrapper). */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #0f172a;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  box-shadow: 0 0 0px 1000px #ffffff inset;
+  caret-color: #0f172a;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+input:autofill {
+  background-color: #ffffff;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

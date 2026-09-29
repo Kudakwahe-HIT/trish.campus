@@ -30,7 +30,12 @@ export function EmailField({ value, onChange, error, disabled }: EmailFieldProps
           name="email"
           type="email"
           inputMode="email"
-          autoComplete="email"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
+          data-lpignore="true"
+          data-1p-ignore="true"
           placeholder="Enter your institutional email"
           value={value}
           disabled={disabled}

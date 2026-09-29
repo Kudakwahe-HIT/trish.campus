@@ -76,7 +76,7 @@ export function ForgotPasswordCard() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} noValidate className="space-y-6">
+          <form onSubmit={handleSubmit} noValidate autoComplete="off" className="space-y-6">
             <EmailField
               value={email}
               onChange={(value) => {

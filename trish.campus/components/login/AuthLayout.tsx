@@ -25,7 +25,7 @@ export function AuthLayout({ headline, supportingText, children }: AuthLayoutPro
       </div>
 
       <div className="relative flex min-h-screen flex-col lg:flex-row lg:items-stretch lg:p-10 xl:p-14">
-        <div className="relative flex min-h-[40vh] flex-col justify-between overflow-hidden px-6 pb-9 pt-7 sm:px-10 sm:pt-9 lg:min-h-0 lg:flex-1 lg:overflow-visible lg:px-0 lg:py-2">
+        <div className="relative flex flex-1 flex-col justify-between overflow-hidden px-6 pb-9 pt-7 sm:px-10 sm:pt-9 lg:min-h-0 lg:overflow-visible lg:px-0 lg:py-2">
           {/* Mobile/tablet: compact bounded hero image (desktop uses the fixed backdrop above instead) */}
           <div className="absolute inset-0 -z-10 lg:hidden">
             <Image
@@ -64,12 +64,16 @@ export function AuthLayout({ headline, supportingText, children }: AuthLayoutPro
           </div>
         </div>
 
-        <div className="relative flex flex-1 items-center justify-start bg-white px-5 pb-10 pt-2 sm:px-8 lg:flex-none lg:w-[460px] lg:justify-center lg:bg-transparent lg:px-0 lg:py-0 xl:w-[500px]">
+        <div className="relative flex flex-1 flex-col items-center justify-start bg-white px-5 pb-6 pt-2 sm:px-8 sm:pb-8 lg:flex-none lg:w-[460px] lg:justify-center lg:bg-transparent lg:px-0 lg:py-0 xl:w-[500px]">
           <div
             aria-hidden
             className="pointer-events-none absolute -inset-10 hidden rounded-[48px] bg-hit-gold/10 blur-3xl lg:block"
           />
           <div className="relative -mt-9 w-full max-w-[460px] sm:-mt-10 lg:mt-0">{children}</div>
+          <p className="relative mt-4 text-center text-xs font-medium text-slate-400 lg:mt-8 lg:text-white/60">
+            Developed by Kreative Technologies
+            <sup className="ml-0.5 text-[0.65em] font-semibold">&trade;</sup>
+          </p>
         </div>
       </div>
     </div>

@@ -57,23 +57,11 @@ export function LoginCard() {
 
     setStatus("loading");
 
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), password }),
-      });
-
-      if (!response.ok) throw new Error("Invalid credentials");
-
-      setStatus("success");
-      router.push("/dashboard");
-    } catch {
-      setStatus("idle");
-      setFormError(
-        "We couldn't sign you in. Please check your email and password and try again."
-      );
-    }
+    // Prototype stage: no auth backend yet, so any well-formed submission signs in.
+    // Swap this block for a real call to /api/auth/login once that endpoint exists.
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    setStatus("success");
+    router.push("/dashboard");
   }
 
   const isBusy = status === "loading" || status === "success";
@@ -99,7 +87,7 @@ export function LoginCard() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      <form onSubmit={handleSubmit} noValidate autoComplete="off" className="space-y-5">
         <EmailField
           value={email}
           onChange={(value) => {
