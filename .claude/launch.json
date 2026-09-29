@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "trish-campus-dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "trish.campus", "dev"],
+      "port": 3000
+    }
+  ]
+}
